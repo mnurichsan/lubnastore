@@ -11,7 +11,6 @@
 |
 */
 
-use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-    Route::get('/', 'Admin\AdminController@index');
+Route::get('admin/login', 'Auth\AdminAuthController@getLogin')->name('admin.login');
+Route::post('admin/login', 'Auth\AdminAuthController@postLogin')->name('admin.post');
+Route::post('admin/logut', 'Auth\AdminAuthController@postLogout')->name('admin.logout');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
+    Route::get('/', 'Admin\AdminController@index')->name('admin.index');
 });
