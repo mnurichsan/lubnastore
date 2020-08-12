@@ -27,4 +27,5 @@ Route::post('admin/logut', 'Auth\AdminAuthController@postLogout')->name('admin.l
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
+    Route::resource('/category', 'Admin\CategoryController');
 });
