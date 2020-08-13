@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Admin\Category as AppCategory;
+
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Alert;
 
 class CategoryController extends Controller
 {
@@ -53,7 +54,8 @@ class CategoryController extends Controller
         ];
 
         Category::create($categories);
-        return redirect()->route('category.index')->with('status', 'Berhasil di tambahkan');;
+        toast('Berhasil Di Tambah', 'success');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -103,7 +105,8 @@ class CategoryController extends Controller
         ];
 
         Category::findOrFail($id)->update($categories);
-        return redirect()->route('category.index')->with('status', 'Data berhasil di ubah');
+        toast('Berhasil Di Edit', 'success');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -115,7 +118,27 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::findOrFail($id)->delete();
-
+        toast('Berhasil Di Hapus', 'success');
         return redirect()->back()->with('status', 'Data berhasil di hapus');
+    }
+
+    public function getTrashed()
+    {
+        $categories = Category::onlyTrashed()->get();
+        return view('admin.category.trashed', compact('categories'));
+    }
+
+    public function restore($id)
+    {
+        Category::onlyTrashed()->findOrFail($id)->restore();
+        toast('Data berhasil di restore', 'success');
+        return redirect()->back();
+    }
+
+    public function kill($id)
+    {
+        Category::onlyTrashed()->findOrFail($id)->forceDelete();
+        toast('Data berhasil di delete permanen', 'success');
+        return redirect()->back();
     }
 }

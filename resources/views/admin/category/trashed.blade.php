@@ -1,12 +1,12 @@
 @extends('admin.layouts.dashboard')
-@section('title','Category')
+@section('title','Trashed Category')
 @section('content')
 
 <div class="row">
     <div class="col">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="{{route('category.create')}}" class="btn btn-md btn-primary rounded-pill shadow-lg"><i class="fas fa-plus"></i> Add Category</a>
+                <a href="{{route('category.index')}}" class="btn btn-sm btn-primary rounded-pill"><i class="fas fa-arrow-left"></i> Back To All Category</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -34,8 +34,8 @@
                                 <td>{{$category->name}}</td>
                                 <td>{{$category->slug}}</td>
                                 <td>
-                                    <a href="{{route('category.edit',$category->id)}}" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="{{route('category.destroy',$category->id)}}" class="btn btn-sm btn-danger btn-hapus">Delete</a>
+                                    <a href="{{route('category.restore',$category->id)}}" class="btn btn-sm btn-success">Restore</a>
+                                    <a href="{{route('category.kill',$category->id)}}" class="btn btn-sm btn-danger btn-hapus">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

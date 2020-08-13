@@ -27,5 +27,10 @@ Route::post('admin/logut', 'Auth\AdminAuthController@postLogout')->name('admin.l
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
+
+    //category
+    Route::get('/category/trashed', 'Admin\CategoryController@getTrashed')->name('category.trashed');
+    Route::delete('category/trahsed/{id}', 'Admin\CategoryController@kill')->name('category.kill');
+    Route::get('/category/trashed/{id}/restore', 'Admin\CategoryController@restore')->name('category.restore');
     Route::resource('/category', 'Admin\CategoryController');
 });

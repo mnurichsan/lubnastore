@@ -6,7 +6,7 @@
     <div class="col-lg-6 col-md-6 col-sm-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="{{route('category.index')}}" class="btn btn-md btn-success rounded-pill shadow-lg">Back</a>
+                <a href="{{route('category.index')}}" class="btn btn-md btn-success rounded-pill shadow-lg"><i class="fas fa-arrow-left"></i> Back</a>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{route('category.store')}}">
