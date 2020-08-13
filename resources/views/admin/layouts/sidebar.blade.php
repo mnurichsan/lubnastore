@@ -35,7 +35,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Categories</h6>
-                <a class="collapse-item" href="{{route('category.index')}}">Add Category</a>
+                <a class="collapse-item" href="{{route('category.index')}}">All Category</a>
                 <a class="collapse-item" href="{{route('category.trashed')}}">Trashed Category</a>
             </div>
         </div>
@@ -44,14 +44,14 @@
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
+            <i class="fas fa-fw fa-box"></i>
             <span>Product</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Products</h6>
-                <a class="collapse-item" href="utilities-color.html">Add Product</a>
-                <a class="collapse-item" href="utilities-border.html">Trashed Products</a>
+                <a class="collapse-item" href="{{route('product.index')}}">All Product</a>
+                <a class="collapse-item" href="{{route('product.trashed')}}">Trashed Products</a>
             </div>
         </div>
     </li>

@@ -30,7 +30,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () 
 
     //category
     Route::get('/category/trashed', 'Admin\CategoryController@getTrashed')->name('category.trashed');
-    Route::delete('category/trahsed/{id}', 'Admin\CategoryController@kill')->name('category.kill');
+    Route::delete('/category/trahsed/{id}', 'Admin\CategoryController@kill')->name('category.kill');
     Route::get('/category/trashed/{id}/restore', 'Admin\CategoryController@restore')->name('category.restore');
     Route::resource('/category', 'Admin\CategoryController');
+
+
+    //product
+    Route::get('/product/trashed', 'Admin\ProductController@getTrashed')->name('product.trashed');
+    Route::get('/product/trashed/{id}/restore', 'Admin\ProductController@restore')->name('product.restore');
+    Route::delete('/product/trashed/{id}', 'Admin\ProductController@kill')->name('product.kill');
+    Route::resource('/product', 'Admin\ProductController');
 });
