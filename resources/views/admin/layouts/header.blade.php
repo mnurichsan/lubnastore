@@ -5,13 +5,10 @@
           <i class="fa fa-bars"></i>
       </button>
 
-      <!-- Topbar Search -->
-
+      <!-- Nav Item - Open Website-->
+      <a href="/" target="_blank" class="btn btn-success">Open Website</a>
       <!-- Topbar Navbar -->
       <ul class="navbar-nav ml-auto">
-
-          <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-
 
           <!-- Nav Item - Alerts -->
           <li class="nav-item dropdown no-arrow mx-1">
