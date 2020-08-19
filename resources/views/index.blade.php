@@ -100,26 +100,21 @@
             @foreach($products as $product)
             <div class="col-lg-3 col-md-6">
                 <div class="single-product">
+
                     <div class="product-img">
                         <img class="rounded" src="{{asset($product->image)}}" width="300px" height="200px" alt="" />
                         <div class="p_icon">
                             <a href="{{route('product.detail',$product->slug)}}">
                                 <i class="ti-eye"></i>
                             </a>
-                            <a href="#">
-                                <i class="ti-heart"></i>
-                            </a>
-                            <a href="#">
-                                <i class="ti-shopping-cart"></i>
-                            </a>
                         </div>
                     </div>
                     <div class="product-btm">
-                        <a href="#" class="d-block">
+                        <a href="{{route('product.detail',$product->slug)}}" class="d-block">
                             <h4>{{$product->name}}</h4>
                         </a>
                         <div class="mt-3">
-                            <span class="mr-4">IDR.{{number_format($product->price)}}</span>
+                            <span class="mr-4">IDR.{{number_format($product->price,0,',','.')}}</span>
                         </div>
                     </div>
                 </div>

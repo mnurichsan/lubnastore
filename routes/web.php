@@ -11,12 +11,17 @@
 |
 */
 
+
+
 Auth::routes();
 Route::get('/', 'LubnaStoreController@index')->name('lubna.index');
+Route::get('/checkout', 'LubnaStoreController@checkout')->name('product.checkout');
 Route::get('/product/{slug}', 'LubnaStoreController@getProduct')->name('product.detail');
 Route::get('/cart', 'LubnaStoreController@cart')->name('cart.index');
 Route::post('/cart', 'LubnaStoreController@cartStore')->name('cart.store');
 Route::delete('/cart/{id}', 'LubnaStoreController@cartDestroy')->name('cart.destroy');
+
+
 
 
 

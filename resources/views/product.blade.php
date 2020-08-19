@@ -32,7 +32,7 @@
             <div class="col-lg-5 offset-lg-1 mb-5">
                 <div class="s_product_text">
                     <h3>{{$detailProduct->name}}</h3>
-                    <h2>IDR.{{number_format($detailProduct->price,2,".",",")}}</h2>
+                    <h2>IDR.{{number_format($detailProduct->price,0,',','.')}}</h2>
                     <ul class="list">
                         <li>
                             <a class="active" href="#">

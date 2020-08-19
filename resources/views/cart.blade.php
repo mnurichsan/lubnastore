@@ -11,8 +11,8 @@
                     <p>Very us move be blessed multiply night</p>
                 </div>
                 <div class="page_link">
-                    <a href="index.html">Home</a>
-                    <a href="cart.html">Cart</a>
+                    <a href="{{route('lubna.index')}}">Home</a>
+                    <a href="">Cart</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                                 </div>
                             </td>
                             <td>
-                                <h5>IDR.{{$cart->model->price}}</h5>
+                                <h5>{{number_format($cart->model->price,0,',','.')}}</h5>
                             </td>
                             <td>
                                 <div class="product_count">
@@ -64,7 +64,7 @@
                                 </div>
                             </td>
                             <td>
-                                <h5>{{$cart->qty * $cart->model->price}}</h5>
+                                <h5>{{number_format($cart->qty * $cart->model->price,0,',','.')}}</h5>
                             </td>
                             <td>
                                 <form method="POST" action="{{route('cart.destroy',$cart->rowId)}}">
@@ -75,20 +75,6 @@
                             </td>
                         </tr>
                         @endforeach
-                        <tr class="bottom_button">
-                            <td>
-                                <a class="gray_btn" href="#">Update Cart</a>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <div class="cupon_text">
-                                    <input type="text" placeholder="Coupon Code" />
-                                    <a class="main_btn" href="#">Apply</a>
-                                    <a class="gray_btn" href="#">Close Coupon</a>
-                                </div>
-                            </td>
-                        </tr>
                         <tr>
                             <td></td>
                             <td></td>
@@ -96,7 +82,7 @@
                                 <h5>Subtotal</h5>
                             </td>
                             <td>
-                                <h5>{{Cart::subtotal()}}</h5>
+                                <h5>{{Cart::subtotal()}} </h5>
                             </td>
                         </tr>
                         <tr class="out_button_area">
@@ -105,8 +91,8 @@
                             <td></td>
                             <td>
                                 <div class="checkout_btn_inner">
-                                    <a class="gray_btn" href="#">Continue Shopping</a>
-                                    <a class="main_btn" href="#">Proceed to checkout</a>
+                                    <a class="gray_btn" href="{{route('lubna.index')}}">Continue Shopping</a>
+                                    <a class="main_btn" href="{{route('product.checkout')}}">Proceed to checkout</a>
                                 </div>
                             </td>
                         </tr>
